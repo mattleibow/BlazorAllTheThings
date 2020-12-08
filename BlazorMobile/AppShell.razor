@@ -1,0 +1,31 @@
+<Shell>
+    <FlyoutHeader>
+        <Grid BackgroundColor="@(Color.FromHex("#05173D"))"
+              HeightRequest="80">
+            <Label Text="Mobile"
+                   FontSize="24"
+                   TextColor="Color.White"
+                   FontAttributes="FontAttributes.Bold"
+                   HorizontalTextAlignment="TextAlignment.Center"
+                   VerticalTextAlignment="TextAlignment.Center" />
+        </Grid>
+    </FlyoutHeader>
+
+    <ChildContent>
+        <ShellContent Route="home"
+                      Title="Home"
+                      Icon="@(new FontImageSource { Glyph = "\ue078", FontFamily = "OpenIconic" })">
+            <Index />
+        </ShellContent>
+        <ShellContent Route="counter"
+                      Title="Counter"
+                      Icon="@(new FontImageSource { Glyph = "\ue0aa", FontFamily = "OpenIconic" })">
+            <HelloWorld />
+        </ShellContent>
+        <ShellContent Route="custom"
+                      Title="Custom"
+                      Icon="@(new FontImageSource { Glyph = "\ue040", FontFamily = "OpenIconic" })">
+            <HelloWorld />
+        </ShellContent>
+    </ChildContent>
+</Shell>

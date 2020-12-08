@@ -1,0 +1,11 @@
+﻿<div class="my-component">
+    This Blazor component is defined in the <strong>RazorClassLibrary</strong> package.
+</div>
+
+<p>Documents directory:</p>
+
+<p>@documentsDir</p>
+
+@code {
+    private string documentsDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+}

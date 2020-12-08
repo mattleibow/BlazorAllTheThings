@@ -1,0 +1,61 @@
+<Frame CornerRadius="8"
+       BackgroundColor="@(Color.FromHex("#e2e3e5"))"
+       BorderColor="@(Color.FromHex("#d6d8db"))"
+       HasShadow="false">
+
+    <Label @ref="label"
+           LineHeight="1.1"
+           TextColor="@(Color.FromHex("#383d41"))"/>
+
+</Frame>
+
+@code {
+    // Demonstrates how a parent component can supply parameters
+    [Parameter]
+    public string Title { get; set; }
+
+    private Microsoft.MobileBlazorBindings.Elements.Label label;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            label.NativeControl.FormattedText = new FormattedString
+            {
+                Spans =
+                {
+                    new Xamarin.Forms.Span
+                    {
+                        Text = "\ue0a3  ",
+                        FontFamily = "OpenIconic",
+                    },
+                    new Xamarin.Forms.Span
+                    {
+                        Text = Title,
+                        FontAttributes = FontAttributes.Bold,
+                    },
+                    new Xamarin.Forms.Span
+                    {
+                        Text = "Please take our ",
+                    },
+                    new Xamarin.Forms.Span
+                    {
+                        Text = "brief survey",
+                        FontAttributes = FontAttributes.Bold,
+                        GestureRecognizers =
+                        {
+                            new Xamarin.Forms.TapGestureRecognizer
+                            {
+                                Command = new Command(async () => await Launcher.OpenAsync("https://go.microsoft.com/fwlink/?linkid=2127996"))
+                            }
+                        }
+                    },
+                    new Xamarin.Forms.Span
+                    {
+                        Text = " and tell us what you think.",
+                    },
+                }
+            };
+        }
+    }
+}

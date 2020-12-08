@@ -1,0 +1,61 @@
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="BlazorMobile.XamlResources">
+
+    <Style x:Key="FloutItemStyle" TargetType="Grid">
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="Transparent" TargetName="FlyoutItemLayout" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Selected">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="#575985" TargetName="FlyoutItemLayout" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Shell">
+        <Setter Property="FlyoutBackground">
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#052767" Offset="0.0" />
+                <GradientStop Color="#3a0647" Offset="0.7" />
+            </LinearGradientBrush>
+        </Setter>
+        <Setter Property="ItemTemplate">
+            <DataTemplate>
+                <Grid Padding="24,12,24,0"
+                      Style="{StaticResource FloutItemStyle}">
+                    <Frame x:Name="FlyoutItemLayout"
+                           HasShadow="False"
+                           CornerRadius="5"
+                           BorderColor="Transparent">
+                        <Grid HeightRequest="40"
+                              ColumnSpacing="0" RowSpacing="20"
+                              ColumnDefinitions="54,*">
+                            <Image x:Name="FlyoutItemImage"
+                                   Source="{Binding FlyoutIcon}"
+                                   VerticalOptions="Center" HorizontalOptions="Center"
+                                   HeightRequest="24" WidthRequest="24" />
+                            <Label x:Name="FlyoutItemLabel"
+                                   Grid.Column="1"
+                                   Text="{Binding Title}"
+                                   FontSize="16"
+                                   HorizontalOptions="Start"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center"
+                                   TextColor="White" />
+                        </Grid>
+                    </Frame>
+                </Grid>
+            </DataTemplate>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
