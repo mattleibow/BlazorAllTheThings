@@ -1,0 +1,18 @@
+﻿<ContentPage>
+    <StackLayout Margin="new Thickness(20)">
+
+        <Label Text="Custom" FontSize="40" />
+
+        <BlazorMobileLibrary.CustomComponent />
+
+    </StackLayout>
+</ContentPage>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}

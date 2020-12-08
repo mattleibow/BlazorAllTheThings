@@ -1,0 +1,17 @@
+﻿<StackLayout>
+
+    <Frame BackgroundColor="@(Color.FromHex("#eeeeee"))"
+           BorderColor="@Color.Red"
+           HasShadow="false">
+        <Label Text="This component is defined in the BlazorMobileLibrary package." />
+    </Frame>
+
+    <Label Text="Documents directory:" />
+
+    <Label Text="@documentsDir" />
+
+</StackLayout>
+
+@code {
+    private string documentsDir = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+}

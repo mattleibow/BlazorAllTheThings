@@ -1,0 +1,20 @@
+﻿<ContentPage>
+    <StackLayout Margin="new Thickness(20)">
+
+        <Label Text="Counter" FontSize="40" />
+
+        <Label Text="@("Current count: " + currentCount)" />
+
+        <Button OnClick="IncrementCount">Click me</Button>
+
+    </StackLayout>
+</ContentPage>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
